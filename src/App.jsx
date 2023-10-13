@@ -10,11 +10,13 @@ const App = () => {
       <Header></Header>
 
       {/* main  */}
-      <Outlet></Outlet>
-
+      <div className="main  min-h-[calc(100vh-60px)]">
+        <Outlet></Outlet>
+      </div>
       {/* Footer */}
-      <Footer></Footer>
-      
+      <div className="footer">
+        <Footer></Footer>
+      </div>
     </>
   );
 };

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {NavLink } from 'react-router-dom';
-import { FaBars, FaFileVideo, FaHome, FaShoppingCart } from "react-icons/fa";
-import { FaEarthAfrica } from "react-icons/fa6";
+import { FaBars} from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
-import { TbTournament } from "react-icons/tb";
+
 import NavList from './NavList';
 import './Header.css'
 const Header = () => {
@@ -24,9 +23,11 @@ const Header = () => {
 
   return (
     <>
-      <header className="shadow-xl  z-40 fixed  p-4 bg-transparent text-white w-full">
+      <header className="z-40 fixed  p-4 bg-transparent  w-full">
         <nav>
-          <div className="flex md:justify-around items-center justify-end">
+          <div className="flex md:justify-around items-center    justify-end  font-[Poppins]">
+            {/* logo */}
+
             {/* nav-list */}
 
             <div className=" hidden md:block">
@@ -35,14 +36,13 @@ const Header = () => {
 
             {/* sign in and sign up */}
             <div className="flex gap-5 items-center">
-              <button
-                onClick={() =>
-                  document.getElementById("my_modal_5").showModal()
-                }
-                className="bt "
-              >
+              <button className="py-[10px] px-[20px] border-[1.5px] rounded-[10px] border-[#0076CE] text-[#0076CE] text-[16px] font-[700] ">
                 Login
               </button>
+              <button className="py-[10px] px-[20px] border-[1.5px] rounded-[10px]  text-[16px] font-[700] text-white bg-[#0076CE]">
+                Register
+              </button>
+
               {Open ? (
                 <>
                   <p
@@ -76,23 +76,18 @@ const Header = () => {
               <hr />
               <ul className="flex  flex-col gap-5 text-green-300 mt-2">
                 <li className="flex gap-2  items-center">
-                  <FaHome></FaHome>
                   <NavLink to={"/"}>Home</NavLink>
                 </li>
                 <li className="flex gap-2  items-center">
-                  <FaShoppingCart></FaShoppingCart>
                   <NavLink to={"/Shop"}>Shop</NavLink>
                 </li>
                 <li className="flex gap-2  items-center">
-                  <TbTournament></TbTournament>
                   <NavLink to={"/Tournament"}>Tournament</NavLink>
                 </li>
                 <li className="flex gap-2  items-center">
-                  <FaFileVideo></FaFileVideo>
                   <NavLink to={"/LiveStreaming"}>Live Streaming</NavLink>
                 </li>
                 <li className="flex gap-2  items-center">
-                  <FaEarthAfrica></FaEarthAfrica>
                   <NavLink to={"/Community"}>Community</NavLink>
                 </li>
               </ul>
@@ -100,25 +95,6 @@ const Header = () => {
           </div>
         </>
       )}
-
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
-            </form>
-          </div>
-        </div>
-      </dialog>
-
-      {/* modal */}
     </>
   );
 };
